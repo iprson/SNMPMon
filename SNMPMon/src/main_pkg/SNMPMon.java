@@ -15,16 +15,13 @@ public class SNMPMon {
 		try (MonitorDevice md = new MonitorDevice(args[0], args[1]))
 		//try (MonitorDevice md = new MonitorDevice("127.0.0.1", "175"))
 		{
-			// ?????? ?????????
 			md.start();
-			// ?????? ?????????????
 			md.ReadSNMP();
 			
 			try (
 					FileWriter out = new FileWriter(new File("Interfaces.txt"), true);
 				) 
 			{
-				// ?????? ? ????
 				List<InterfaceElement> buffList = null;
 				for (Map.Entry<Integer, List<InterfaceElement>> entry : md.getMapInterfaces().entrySet()) 
 				{
